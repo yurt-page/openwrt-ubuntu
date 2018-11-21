@@ -1,0 +1,16 @@
+[submodule "libubox"]
+	path = libubox
+	url = https://git.openwrt.org/project/libubox.git
+[submodule "ubus"]
+	path = ubus
+	url = https://git.openwrt.org/project/ubus.git
+[submodule "uci"]
+	path = uci
+	url = https://git.openwrt.org/project/uci.git
+[submodule "uhttpd"]
+	path = uhttpd
+	url = https://git.openwrt.org/project/uhttpd.git
+[submodule "ustream-ssl"]
+	path = ustream-ssl
+	url = https://git.openwrt.org/project/ustream-ssl.git
+
