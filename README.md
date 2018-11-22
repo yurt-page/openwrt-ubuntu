@@ -1,5 +1,5 @@
 # PPA for OpenWrt on Ubuntu.
-Off course, OpenWrt programs can't be fully supported on Ubuntu but partially this works.
+Of course, OpenWrt programs can't be fully supported on Ubuntu but partially this works.
 For example [uhttpd](https://openwrt.org/docs/guide-user/services/webserver/uhttpd) on Ubuntu works pretty well. For example, to expose `/www` dir via http:
 
     sudo uhttpd -f -h /www -p 80 

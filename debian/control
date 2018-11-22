@@ -20,23 +20,30 @@ Description: OpenWrt core utilities.
  usually in programs and that have been coded in a flexible
  and reusable way to avoid wasting time.
 
+# https://openwrt.org/docs/techref/ubus
+Package: ubus
+Architecture: any
+Depends: libubox (= ${source:Version}),
+         liblua5.1-0-dev
+Description: OpenWrt micro bus architecture
+
 Package: ustream-ssl
 Architecture: any
 Depends: libubox (= ${source:Version}),
          openssl,
          ${misc:Depends}
 Description: ustream-ssl
+ Wrapper library on top of the actual SSL library
+ (mbedtls, cyassl, openssl).
 
-Package: ubus
-Architecture: any
-Depends: libubox (= ${source:Version}),
-         liblua5.1-0-dev
-Description: ustream-ssl
-
+# https://openwrt.org/docs/guide-user/services/webserver/uhttpd
 Package: uhttpd
 Architecture: any
 Depends: libubox (= ${source:Version}),
          ustream-ssl (= ${source:Version}),
          openssl,
          ${misc:Depends}
-Description: uhttpd
+Description: uHTTPd Web Server
+  uHTTPd is a web server written from scratch by OpenWrt
+  developers. It is aimed towards being an efficient and
+  stable server, suitable for lightweight tasks.
