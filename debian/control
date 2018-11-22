@@ -1,0 +1,42 @@
+Source: openwrt
+Section: net
+Priority: optional
+Maintainer: Sergey Ponomarev <stokito@gmail.com>
+Build-Depends: debhelper (>= 11), liblua5.1-0-dev
+Standards-Version: 4.1.3
+Homepage: https://openwrt.org/
+Vcs-Browser: https://github.com/stokito/openwrt-ubuntu
+Vcs-Git: https://github.com/stokito/openwrt-ubuntu.git
+
+# https://git.openwrt.org/project/ubox.git
+# https://openwrt.org/docs/techref/libubox
+Package: libubox
+Architecture: any
+Depends: libjson-c-dev,
+         ${misc:Depends}
+Description: OpenWrt core utilities.
+ It's one of the core libraries used within openwrt because
+ it's a set of utilities, mostly wrappers, that are present
+ usually in programs and that have been coded in a flexible
+ and reusable way to avoid wasting time.
+
+Package: ustream-ssl
+Architecture: any
+Depends: libubox (= ${source:Version}),
+         openssl,
+         ${misc:Depends}
+Description: ustream-ssl
+
+Package: ubus
+Architecture: any
+Depends: libubox (= ${source:Version}),
+         liblua5.1-0-dev
+Description: ustream-ssl
+
+Package: uhttpd
+Architecture: any
+Depends: libubox (= ${source:Version}),
+         ustream-ssl (= ${source:Version}),
+         openssl,
+         ${misc:Depends}
+Description: uhttpd

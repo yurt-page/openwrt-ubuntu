@@ -1,0 +1,5 @@
+#! /usr/bin/dh-exec
+# from install_manifest.txt
+/usr/bin/uhttpd
+/usr/lib/uhttpd_lua.so
+/usr/lib/uhttpd_ubus.so

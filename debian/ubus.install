@@ -1,0 +1,9 @@
+#! /usr/bin/dh-exec
+# from install_manifest.txt
+/usr/lib/libubus.so
+/usr/bin/ubus
+/usr/sbin/ubusd
+/usr/include/ubusmsg.h
+/usr/include/ubus_common.h
+/usr/include/libubus.h
+/usr/lib/x86_64-linux-gnu/lua/5.1/ubus.so

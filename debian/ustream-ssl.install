@@ -1,0 +1,4 @@
+#! /usr/bin/dh-exec
+# from install_manifest.txt
+/usr/include/libubox/ustream-ssl.h
+/usr/lib/libustream-ssl.so

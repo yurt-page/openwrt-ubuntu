@@ -1,0 +1,13 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: openwrt
+Source: https://openwrt.org/
+
+Files: *
+Copyright: <2018> Jo-Philipp Wich <xMff@irc.freenode.net>
+License: GPL-2+
+
+# If you want to use GPL v2 or later for the /debian/* files use 
+# the following clauses, or change it to suit. Delete these two lines
+Files: debian/*
+Copyright: 2018 Sergey Ponomarev <stokito@gmail.com>
+License: GPL-2+
