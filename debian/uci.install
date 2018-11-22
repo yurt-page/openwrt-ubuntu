@@ -1,0 +1,9 @@
+#! /usr/bin/dh-exec
+# from install_manifest.txt
+/usr/include/uci.h
+/usr/include/uci_config.h
+/usr/include/uci_blob.h
+/usr/include/ucimap.h
+/usr/lib/libuci.so
+/usr/bin/uci
+/usr/lib/x86_64-linux-gnu/lua/5.1/uci.so
