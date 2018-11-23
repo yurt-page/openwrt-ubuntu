@@ -1,7 +1,9 @@
 #!/usr/bin/make -f
 # See debhelper(7) (uncomment to enable)
 # output every command that modifies files on the build system.
-#export DH_VERBOSE = 1
+export DH_VERBOSE = 1
+
+PACKAGE=openwrt
 
 configure: configure-stamp
 configure-stamp:
@@ -32,8 +34,9 @@ install: build
 #	dh_clean -k
 	dh_prep
 	dh_installdirs
+	echo "DESTDIR is $DESTDIR and CURDIR is $CURDIR"
 	# Add here commands to install the package into debian/fchat.
-	$(MAKE) install
+	$(MAKE) DESTDIR=$(CURDIR)/debian/$(PACKAGE) install
 
 
 # Build architecture-independent files here.
