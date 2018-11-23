@@ -3,76 +3,23 @@
 # output every command that modifies files on the build system.
 export DH_VERBOSE = 1
 
-PACKAGE=openwrt
 
-configure: configure-stamp
-configure-stamp:
-	dh_testdir
-	# Add here commands to configure the package.
-	touch configure-stamp
+# see FEATURE AREAS in dpkg-buildflags(1)
+#export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
-
-build: build-stamp
-
-build-stamp: configure-stamp
-	dh_testdir
-	# Add here commands to compile the package.
-	$(MAKE)
-	touch $@
-
-clean:
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp configure-stamp
-	# Add here commands to clean up after the build process.
-	$(MAKE) clean
-	dh_clean
-
-install: build
-	dh_testdir
-	dh_testroot
-#	dh_clean -k
-	dh_prep
-	dh_installdirs
-	echo "DESTDIR is $DESTDIR and CURDIR is $CURDIR"
-	# Add here commands to install the package into debian/fchat.
-	$(MAKE) DESTDIR=$(CURDIR)/debian/$(PACKAGE) install
+# see ENVIRONMENT in dpkg-buildflags(1)
+# package maintainers to append CFLAGS
+#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+# package maintainers to append LDFLAGS
+#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
 
-# Build architecture-independent files here.
-binary-indep: install
-# We have nothing to do by default.
+%:
+	dh $@
 
-# Build architecture-dependent files here.
-binary-arch: install
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs
-#	dh_installdocs
-#	dh_installexamples
-#	dh_install
-#	dh_installmenu
-#	dh_installdebconf
-#	dh_installlogrotate
-#	dh_installemacsen
-#	dh_installpam
-#	dh_installmime
-#	dh_python
-#	dh_installinit
-#	dh_installcron
-#	dh_installinfo
-#	dh_installman
-	dh_link
-	dh_strip
-	dh_compress
-	dh_fixperms
-#	dh_perl
-#	dh_makeshlibs
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
 
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure
+# dh_make generated override targets
+# This is example for Cmake (See https://bugs.debian.org/641051 )
+#override_dh_auto_configure:
+#	dh_auto_configure -- #	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
+

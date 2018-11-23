@@ -4,11 +4,12 @@
 all:	libubox/build ubus/build uci/build ustream-ssl/build uhttpd/build
 
 install:	libubox/build ubus/build ustream-ssl/build uhttpd/build
-	cd ./libubox/build; make install
-	cd ./ubus/build; make install
-	cd ./uci/build; make install
-	cd ./ustream-ssl/build; make install
-	cd ./uhttpd/build; make install
+	echo "Makefile: DESTDIR is ${DESTDIR} and CURDIR is ${CURDIR}"
+	cd ./libubox/build; make DESTDIR=$(DESTDIR) install
+	cd ./ubus/build; make DESTDIR=$(DESTDIR) install
+	cd ./uci/build; make DESTDIR=$(DESTDIR) install
+	cd ./ustream-ssl/build; make DESTDIR=$(DESTDIR) install
+	cd ./uhttpd/build; make DESTDIR=$(DESTDIR) install
 
 uninstall:
 	cd ./libubox/build; xargs rm < install_manifest.txt
