@@ -1,9 +1,9 @@
 #Standard stuff here
-.PHONY:	all clean install uninstall
+.PHONY: all clean pull install uninstall
 
-all:	libubox/build ubus/build uci/build ustream-ssl/build uhttpd/build
+all: pull libubox/build ubus/build uci/build ustream-ssl/build uhttpd/build
 
-install:	libubox/build ubus/build ustream-ssl/build uhttpd/build
+install: libubox/build ubus/build ustream-ssl/build uhttpd/build
 	echo "Makefile: DESTDIR is ${DESTDIR} and CURDIR is ${CURDIR}"
 	cd ./libubox/build; make DESTDIR=$(DESTDIR) install
 	cd ./ubus/build; make DESTDIR=$(DESTDIR) install
@@ -22,19 +22,19 @@ libubox/build:
 	mkdir ./libubox/build
 	cd ./libubox/build; cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_EXAMPLES=OFF .. ; make
 
-ubus/build:	libubox/build
+ubus/build: libubox/build
 	mkdir ./ubus/build
 	cd ./ubus/build; cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_EXAMPLES=OFF  .. ; make
 
-uci/build:	libubox/build
+uci/build: libubox/build
 	mkdir ./uci/build
 	cd ./uci/build; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make
 
-ustream-ssl/build:	libubox/build
+ustream-ssl/build: libubox/build
 	mkdir ./ustream-ssl/build
 	cd ./ustream-ssl/build; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make
 
-uhttpd/build:	libubox/build ustream-ssl/build ubus/build
+uhttpd/build: libubox/build ustream-ssl/build ubus/build
 	mkdir ./uhttpd/build
 	cd ./uhttpd/build; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make
 
@@ -45,3 +45,5 @@ clean:
 	rm -rf ./ustream-ssl/build
 	rm -rf ./uhttpd/build
 
+pull:
+	git submodule update --recursive --remote
