@@ -14,3 +14,18 @@
 	path = ustream-ssl
 	url = https://git.openwrt.org/project/ustream-ssl.git
 
+[submodule "rpcd"]
+	path = rpcd
+	url = https://git.openwrt.org/project/rpcd.git
+[submodule "luci"]
+	path = luci
+	url = https://git.openwrt.org/project/luci.git
+[submodule "iwinfo"]
+	path = iwinfo
+	url = https://git.openwrt.org/project/iwinfo.git
+[submodule "jsonpath"]
+	path = jsonpath
+	url = https://git.openwrt.org/project/jsonpath.git
+[submodule "mountd"]
+	path = mountd
+	url = https://git.openwrt.org/project/mountd.git
