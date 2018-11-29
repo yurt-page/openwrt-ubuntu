@@ -1,4 +1,5 @@
 .idea
 debian/tmp
+debian/debhelper-build-stamp
 .debhelper
-cmake-build-debug
+**/cmake-build-debug
