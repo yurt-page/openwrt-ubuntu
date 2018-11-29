@@ -1,16 +1,15 @@
 #Standard stuff here
 .PHONY: all clean pull install uninstall
 
-all: libubox/build ubus/build uci/build ustream-ssl/build uhttpd/build rpcd/build jsonpath/build
+all: libubox/build ubus/build uci/build ustream-ssl/build uhttpd/build jsonpath/build
 
-install: libubox/build ubus/build ustream-ssl/build uhttpd/build
-	echo "Makefile: DESTDIR is ${DESTDIR} and CURDIR is ${CURDIR}"
+install: libubox/build ubus/build uci/build ustream-ssl/build uhttpd/build jsonpath/build
 	cd ./libubox/build; make DESTDIR=$(DESTDIR) install
 	cd ./ubus/build; make DESTDIR=$(DESTDIR) install
 	cd ./uci/build; make DESTDIR=$(DESTDIR) install
 	cd ./ustream-ssl/build; make DESTDIR=$(DESTDIR) install
 	cd ./uhttpd/build; make DESTDIR=$(DESTDIR) install
-	cd ./rpcd/build; make DESTDIR=$(DESTDIR) install
+#	cd ./rpcd/build; make DESTDIR=$(DESTDIR) install
 	cd ./jsonpath/build; make DESTDIR=$(DESTDIR) install
 
 uninstall:
@@ -19,20 +18,20 @@ uninstall:
 	cd ./uci/build; xargs rm < install_manifest.txt
 	cd ./ustream-ssl/build; xargs rm < install_manifest.txt
 	cd ./uhttpd/build; xargs rm < install_manifest.txt
-	cd ./rpcd/build; xargs rm < install_manifest.txt
+#	cd ./rpcd/build; xargs rm < install_manifest.txt
 	cd ./jsonpath/build; xargs rm < install_manifest.txt
 
 libubox/build:
 	mkdir ./libubox/build
-	cd ./libubox/build; cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_EXAMPLES=OFF .. ; make
+	cd ./libubox/build; cmake -DCMAKE_INSTALL_PREFIX=/usr -DLUAPATH=/usr/lib/x86_64-linux-gnu/lua/5.1 -DBUILD_EXAMPLES=OFF .. ; make
 
 ubus/build: libubox/build
 	mkdir ./ubus/build
-	cd ./ubus/build; cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_EXAMPLES=OFF  .. ; make
+	cd ./ubus/build; cmake -DCMAKE_INSTALL_PREFIX=/usr -DLUAPATH=/usr/lib/x86_64-linux-gnu/lua/5.1 -DBUILD_EXAMPLES=OFF .. ; make
 
 uci/build: libubox/build
 	mkdir ./uci/build
-	cd ./uci/build; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make
+	cd ./uci/build; cmake -DCMAKE_INSTALL_PREFIX=/usr -DLUAPATH=/usr/lib/x86_64-linux-gnu/lua/5.1 .. ; make
 
 ustream-ssl/build: libubox/build
 	mkdir ./ustream-ssl/build
@@ -42,7 +41,7 @@ uhttpd/build: libubox/build ustream-ssl/build ubus/build
 	mkdir ./uhttpd/build
 	cd ./uhttpd/build; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make
 
-rpcd/build: libubox/build ubus/build
+rpcd/build: libubox/build ubus/build uci/build
 	mkdir ./rpcd/build
 	cd ./rpcd/build; cmake -DCMAKE_INSTALL_PREFIX=/usr -DIWINFO_SUPPORT=OFF .. ; make
 

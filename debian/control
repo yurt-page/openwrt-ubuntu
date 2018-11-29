@@ -48,6 +48,8 @@ Package: uhttpd
 Architecture: any
 Depends: libubox (= ${source:Version}),
          ustream-ssl (= ${source:Version}),
+         ubus (= ${source:Version}),
+         uci (= ${source:Version}),
          openssl,
          ${misc:Depends}
 Description: uHTTPd Web Server
@@ -55,12 +57,16 @@ Description: uHTTPd Web Server
   developers. It is aimed towards being an efficient and
   stable server, suitable for lightweight tasks.
 
-Package: rpcd
-Architecture: any
-Depends: libubox (= ${source:Version})
-Description: rpcd
+#Package: rpcd
+#Architecture: any
+#Depends: libubox (= ${source:Version}),
+#         ubus (= ${source:Version}),
+#         uci (= ${source:Version}),
+#         ${misc:Depends}
+#Description: rpcd
 
 Package: jsonpath
 Architecture: any
-Depends: libubox (= ${source:Version})
+Depends: libubox (= ${source:Version}),
+         ${misc:Depends}
 Description: jsonpath
