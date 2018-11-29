@@ -1,0 +1,4 @@
+.idea
+debian/tmp
+.debhelper
+cmake-build-debug
