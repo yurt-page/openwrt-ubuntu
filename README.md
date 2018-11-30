@@ -38,10 +38,10 @@ To build `*.deb` packages use:
 * https://twitter.com/DebWrt
 
 ## Related articles
-*https://code.launchpad.net/~stokito/openwrt/+git/openwrt
-*https://stackoverflow.com/questions/31179509/install-luci-on-ubuntu-instead-of-openwrt
-*https://mondwan.blogspot.com/2015/06/how-to-setup-luci-web-framework-with.html
-*https://github.com/mmaraya/uhttpd2/commits/master
-*https://forum.ubuntu.ru/index.php?topic=276156.0
-*https://mondwan.blogspot.com/2014/06/install-luci-on-ubuntu-1204.html
-*http://www.wakoond.hu/2013/06/using-uci-on-ubuntu.html
+* https://code.launchpad.net/~stokito/openwrt/+git/openwrt
+* https://stackoverflow.com/questions/31179509/install-luci-on-ubuntu-instead-of-openwrt
+* https://mondwan.blogspot.com/2015/06/how-to-setup-luci-web-framework-with.html
+* https://github.com/mmaraya/uhttpd2/commits/master
+* https://forum.ubuntu.ru/index.php?topic=276156.0
+* https://mondwan.blogspot.com/2014/06/install-luci-on-ubuntu-1204.html
+* http://www.wakoond.hu/2013/06/using-uci-on-ubuntu.html
