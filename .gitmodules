@@ -19,7 +19,7 @@
 	url = https://git.openwrt.org/project/rpcd.git
 [submodule "luci"]
 	path = luci
-	url = https://git.openwrt.org/project/luci.git
+	url = https://github.com/openwrt/luci.git
 [submodule "iwinfo"]
 	path = iwinfo
 	url = https://git.openwrt.org/project/iwinfo.git
