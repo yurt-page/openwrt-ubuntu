@@ -29,3 +29,6 @@
 [submodule "mountd"]
 	path = mountd
 	url = https://git.openwrt.org/project/mountd.git
+[submodule "netifd"]
+	path = netifd
+	url = https://git.openwrt.org/project/netifd.git
