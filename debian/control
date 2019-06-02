@@ -2,7 +2,7 @@ Source: openwrt
 Section: net
 Priority: optional
 Maintainer: Sergey Ponomarev <stokito@gmail.com>
-Build-Depends: debhelper (>= 11), cmake, lua5.1, liblua5.1-0-dev, libjson-c-dev, libjsoncpp-dev
+Build-Depends: debhelper (>= 11), cmake, lua5.1, liblua5.1-0-dev, libjson-c-dev
 Standards-Version: 4.1.3
 Homepage: https://openwrt.org/
 Vcs-Browser: https://github.com/stokito/openwrt-ubuntu
@@ -13,7 +13,6 @@ Vcs-Git: https://github.com/stokito/openwrt-ubuntu.git
 Package: libubox
 Architecture: any
 Depends: libjson-c-dev,
-         libjsoncpp-dev,
          ${misc:Depends}
 Description: OpenWrt core utilities.
  It's one of the core libraries used within openwrt because

@@ -65,6 +65,8 @@ It's not so easy to do that but try:
     debuild -S -I
     dput ppa:stokito/openwrt openwrt_1.0-1_source.changes
  
+ The `-S` means create only sources package and `-I` needed to ignore `.git` directory.
+ 
 #### Update sources
 Also you can update sources of all sub repositories:
 
@@ -88,3 +90,7 @@ Also you can update sources of all sub repositories:
 * https://forum.ubuntu.ru/index.php?topic=276156.0
 * https://mondwan.blogspot.com/2014/06/install-luci-on-ubuntu-1204.html
 * http://www.wakoond.hu/2013/06/using-uci-on-ubuntu.html
+
+
+FIXME
+https://github.com/stardust95/TinyCompiler/issues/2
