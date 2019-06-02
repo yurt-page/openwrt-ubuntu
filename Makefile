@@ -17,6 +17,7 @@ uninstall:
 
 libubox/build:
 	cd /usr/include/json-c/; ls
+	ln -s /usr/include/json-c/ /usr/include/json/
 	mkdir ./libubox/build
 	cd ./libubox/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr -DLUAPATH=/usr/lib/x86_64-linux-gnu/lua/5.1 -DBUILD_EXAMPLES=OFF .. ; make
 
