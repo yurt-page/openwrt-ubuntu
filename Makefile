@@ -25,35 +25,35 @@ uninstall:
 
 libubox/build:
 	mkdir ./libubox/build
-	cd ./libubox/build; cmake -DCMAKE_INSTALL_PREFIX=/usr -DLUAPATH=/usr/lib/x86_64-linux-gnu/lua/5.1 -DBUILD_EXAMPLES=OFF .. ; make
+	cd ./libubox/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr -DCMAKE_FIND_ROOT_PATH=${DESTDIR} -DLUAPATH=/usr/lib/x86_64-linux-gnu/lua/5.1 -DBUILD_EXAMPLES=OFF .. ; make
 
 ubus/build: libubox/build
 	mkdir ./ubus/build
-	cd ./ubus/build; cmake -DCMAKE_INSTALL_PREFIX=/usr -DLUAPATH=/usr/lib/x86_64-linux-gnu/lua/5.1 -DBUILD_EXAMPLES=OFF .. ; make
+	cd ./ubus/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr -DCMAKE_FIND_ROOT_PATH=${DESTDIR} -DLUAPATH=/usr/lib/x86_64-linux-gnu/lua/5.1 -DBUILD_EXAMPLES=OFF .. ; make
 
 uci/build: libubox/build
 	mkdir ./uci/build
-	cd ./uci/build; cmake -DCMAKE_INSTALL_PREFIX=/usr -DLUAPATH=/usr/lib/x86_64-linux-gnu/lua/5.1 .. ; make
+	cd ./uci/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr -DCMAKE_FIND_ROOT_PATH=${DESTDIR} -DLUAPATH=/usr/lib/x86_64-linux-gnu/lua/5.1 .. ; make
 
 ustream-ssl/build: libubox/build
 	mkdir ./ustream-ssl/build
-	cd ./ustream-ssl/build; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make
+	cd ./ustream-ssl/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr -DCMAKE_FIND_ROOT_PATH=${DESTDIR} .. ; make
 
 uhttpd/build: libubox/build ustream-ssl/build ubus/build
 	mkdir ./uhttpd/build
-	cd ./uhttpd/build; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make
+	cd ./uhttpd/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr -DCMAKE_FIND_ROOT_PATH=${DESTDIR} .. ; make
 
 rpcd/build: libubox/build ubus/build uci/build
 	mkdir ./rpcd/build
-	cd ./rpcd/build; cmake -DCMAKE_INSTALL_PREFIX=/usr -DIWINFO_SUPPORT=OFF .. ; make
+	cd ./rpcd/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr -DCMAKE_FIND_ROOT_PATH=${DESTDIR} -DIWINFO_SUPPORT=OFF .. ; make
 
 mountd/build: libubox/build uci/build
 	mkdir ./mountd/build
-	cd ./mountd/build; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make
+	cd ./mountd/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr -DCMAKE_FIND_ROOT_PATH=${DESTDIR} .. ; make
 
 jsonpath/build: libubox/build
 	mkdir ./jsonpath/build
-	cd ./jsonpath/build; cmake -DCMAKE_INSTALL_PREFIX=/usr .. ; make
+	cd ./jsonpath/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr -DCMAKE_FIND_ROOT_PATH=${DESTDIR} .. ; make
 
 clean:
 	rm -rf ./libubox/build
