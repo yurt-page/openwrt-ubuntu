@@ -7,7 +7,7 @@ For example [uhttpd](https://openwrt.org/docs/guide-user/services/webserver/uhtt
 Also at this moment works `jshn` and `ubus` commands.
 
 ## Install on Ubuntu 18.10
-The plugin can be installed in Ubuntu via [PPA](https://code.launchpad.net/~stokito/+archive/ubuntu/pidgin-fchat):
+The plugin can be installed in Ubuntu via [PPA](https://code.launchpad.net/~stokito/+archive/ubuntu/openwrt):
 
     sudo add-apt-repository ppa:stokito/openwrt
     sudo apt-get update
@@ -15,17 +15,60 @@ The plugin can be installed in Ubuntu via [PPA](https://code.launchpad.net/~stok
     
 
 ### Build and install from sources
+Each OpenWrt package is located in it's own repo and checkout as a sub repository to the directory.
+The Makefile only triggers `cmake` for each of the directory in needed order.
+
 To install from sources:
 
     git clone https://github.com/stokito/openwrt-ubuntu.git
     cd openwrt-ubuntu
     sudo apt install cmake lua5.1 liblua5.1-0-dev libjson-c-dev
-    make
     sudo make install
 
-To build `*.deb` packages use:    
+#### Dependencies problem
+If you would like to build only one package you anyway have to build and install dependencies.
+All packages have dependency to `libubox` headers but may be others too. So to build `uhttpd`:
+
+    make libubox/build
+    sudo make libubox_install
+    make ubus/build
+    sudo make ubus_install
+    make ustream-ssl/build
+    sudo make ustream-ssl_install
+    make uhttpd/build
+
+So here we build libubox first and then installed it, then we did the same for `ubus` and `ustream-ssl`.
+And only then we build the `uhttpd`.
+Also quite popular is `uci`:
+
+    make uci/build
+    sudo make uci_install
+
+BTW after than you can build the rest with just
+
+    make
+
+And internally will be called the target `.all`
+
+#### Debian/Ubuntu packages
+
+To build `*.deb` packages use:
 
     debuild
+
+You'll see "This package has a Debian revision number but there does not seem to be  appropriate original tar file"
+then press `y`es and after build check the **parent** directory for the built `*.deb` files.
+
+#### Upload to PPA
+It's not so easy to do that but try:
+
+    debuild -S -I
+    dput ppa:stokito/openwrt openwrt_1.0-1_source.changes
+ 
+#### Update sources
+Also you can update sources of all sub repositories:
+
+    make pull
 
 ## uhttpd start with ubus
 
