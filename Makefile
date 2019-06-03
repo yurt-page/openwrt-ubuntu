@@ -2,7 +2,7 @@
 .PHONY: all clean pull libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install rpcd_install mountd_install jsonpath_install install uninstall
 
 #jsonpath/build rpcd/install
-all: libubox/build ubus/build uci/build ustream-ssl/build uhttpd/build mountd/build
+all: install
 
 install: libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install mountd_install
 
