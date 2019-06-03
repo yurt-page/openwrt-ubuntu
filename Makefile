@@ -1,9 +1,10 @@
 #Standard stuff here
 .PHONY: all clean pull libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install rpcd_install mountd_install jsonpath_install install uninstall
 
-all: libubox/build ubus/build uci/build ustream-ssl/build uhttpd/build jsonpath/build mountd/build
+#jsonpath/build rpcd/install
+all: libubox/build ubus/build uci/build ustream-ssl/build uhttpd/build mountd/build
 
-install: libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install mountd_install jsonpath_install
+install: libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install mountd_install
 
 uninstall:
 	if [ -f ./libubox/build/install_manifest.txt ]; then xargs rm -f < ./libubox/build/install_manifest.txt; fi
