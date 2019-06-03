@@ -22,7 +22,7 @@ To install from sources:
 
     git clone https://github.com/stokito/openwrt-ubuntu.git
     cd openwrt-ubuntu
-    sudo apt install cmake lua5.1 liblua5.1-0-dev libjson-c-dev
+    sudo apt install cmake pkg-config lua5.1 liblua5.1-0-dev libjson-c-dev
     sudo make install
 
 #### Dependencies problem
