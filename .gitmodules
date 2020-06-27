@@ -32,3 +32,6 @@
 [submodule "netifd"]
 	path = netifd
 	url = https://git.openwrt.org/project/netifd.git
+[submodule "uclient"]
+	path = uclient
+	url = https://git.openwrt.org/project/uclient.git
