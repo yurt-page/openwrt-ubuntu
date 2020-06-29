@@ -1,6 +1,10 @@
 .idea
 debian/tmp
+debian/files
 debian/debhelper-build-stamp
 .debhelper
 /**/.idea
 /**/cmake-build-debug
+/**/cmake-build-debug/*
+*.o
+*.out
