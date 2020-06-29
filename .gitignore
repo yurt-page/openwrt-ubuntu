@@ -6,5 +6,8 @@ debian/debhelper-build-stamp
 /**/.idea
 /**/cmake-build-debug
 /**/cmake-build-debug/*
+**/.idea
+**/cmake-build-debug
+**/cmake-build-debug/*
 *.o
 *.out
