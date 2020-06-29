@@ -17,6 +17,7 @@
 [submodule "rpcd"]
 	path = rpcd
 	url = https://git.openwrt.org/project/rpcd.git
+	ignore = dirty
 [submodule "luci"]
 	path = luci
 	url = https://github.com/openwrt/luci.git
