@@ -1,7 +1,7 @@
 #Standard stuff here
 .PHONY: all clean pull install uninstall libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install rpcd_install mountd_install jsonpath_install uclient_install
 
-all: libubox/build uci/build ubus/build ustream-ssl/build uhttpd/build rpcd/build mountd/build jsonpath/build uclient/build
+all: libubox/build
 
 install: libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install rpcd_install mountd_install jsonpath_install uclient_install
 
@@ -76,7 +76,7 @@ uclient/build: libubox/build
 	mkdir ./uclient/build
 	cd ./uclient/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr .. ; make
 
-uclient_install: uclient/build libubox_install ustream-ssl_install
+uclient_install: libubox_install ustream-ssl_install uclient/build
 	cd ./uclient/build; make DESTDIR=$(DESTDIR) install
 
 clean:
