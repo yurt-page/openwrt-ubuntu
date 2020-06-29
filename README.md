@@ -22,7 +22,7 @@ To install from sources:
 
     git clone https://github.com/stokito/openwrt-ubuntu.git
     cd openwrt-ubuntu
-    sudo apt install cmake pkg-config lua5.1 liblua5.1-0-dev libjson-c-dev
+    sudo apt install cmake pkg-config lua5.1 liblua5.1-0-dev libjson-c-dev libssl-dev
     sudo make install
 
 #### Dependencies problem
@@ -63,6 +63,7 @@ then press `y`es and after build check the **parent** directory for the built `*
 It's not so easy to do that but try:
 
     debuild -S -I
+    cd ..
     dput ppa:stokito/openwrt openwrt_1.0-1_source.changes
  
  The `-S` means create only sources package and `-I` needed to ignore `.git` directory.
