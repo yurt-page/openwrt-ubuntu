@@ -1,7 +1,7 @@
 #Standard stuff here
 .PHONY: all clean pull install uninstall libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install rpcd_install mountd_install jsonpath_install uclient_install
 
-all: libubox/build
+all: pull libubox/build
 
 install: libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install rpcd_install mountd_install jsonpath_install uclient_install
 
