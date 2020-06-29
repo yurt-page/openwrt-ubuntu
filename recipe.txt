@@ -1,0 +1,11 @@
+# git-build-recipe format 0.4 deb-version {debupstream}-{time}
+lp:openwrt master
+nest libubox lp:~stokito/openwrt/+git/openwrt-libubox libubox
+nest uci lp:~stokito/openwrt/+git/openwrt-uci uci
+nest ubus lp:~stokito/openwrt/+git/openwrt-ubus ubus
+nest ustream-ssl lp:~stokito/openwrt/+git/openwrt-ustream-ssl ustream-ssl
+nest uhttpd lp:~stokito/openwrt/+git/openwrt-uhttpd uhttpd
+nest rpcd lp:~stokito/openwrt/+git/openwrt-rpcd rpcd
+nest mountd lp:~stokito/openwrt/+git/openwrt-mountd mountd
+nest jsonpath lp:~stokito/openwrt/+git/openwrt-jsonpath jsonpath
+nest uclient lp:~stokito/openwrt/+git/openwrt-uclient uclient

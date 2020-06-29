@@ -1,10 +1,9 @@
 #Standard stuff here
-.PHONY: all clean pull libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install rpcd_install mountd_install jsonpath_install install uninstall
+.PHONY: all clean pull install uninstall libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install rpcd_install mountd_install jsonpath_install uclient_install
 
-#jsonpath/build rpcd/install
-all: libubox/build ubus/build uci/build ustream-ssl/build uhttpd/build mountd/build
+all: libubox/build uci/build ubus/build ustream-ssl/build uhttpd/build rpcd/build mountd/build jsonpath/build uclient/build
 
-install: libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install mountd_install
+install: libubox_install uci_install ubus_install ustream-ssl_install uhttpd_install rpcd_install mountd_install jsonpath_install uclient_install
 
 uninstall:
 	if [ -f ./libubox/build/install_manifest.txt ]; then xargs rm -f < ./libubox/build/install_manifest.txt; fi
@@ -15,6 +14,7 @@ uninstall:
 	if [ -f ./rpcd/build/install_manifest.txt ]; then xargs rm -f < ./rpcd/build/install_manifest.txt; fi
 	if [ -f ./mountd/build/install_manifest.txt ]; then xargs rm -f < ./mountd/build/install_manifest.txt; fi
 	if [ -f ./jsonpath/build/install_manifest.txt ]; then xargs rm -f < ./jsonpath/build/install_manifest.txt; fi
+	if [ -f ./uclient/build/install_manifest.txt ]; then xargs rm -f < ./uclient/build/install_manifest.txt; fi
 
 libubox/build:
 	mkdir ./libubox/build
@@ -72,6 +72,13 @@ jsonpath/build: libubox/build
 jsonpath_install: jsonpath/build libubox_install
 	cd ./jsonpath/build; make DESTDIR=$(DESTDIR) install
 
+uclient/build: libubox/build
+	mkdir ./uclient/build
+	cd ./uclient/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr .. ; make
+
+uclient_install: uclient/build libubox_install ustream-ssl_install
+	cd ./uclient/build; make DESTDIR=$(DESTDIR) install
+
 clean:
 	rm -rf ./libubox/build
 	rm -rf ./ubus/build
@@ -81,6 +88,7 @@ clean:
 	rm -rf ./rpcd/build
 	rm -rf ./mountd/build
 	rm -rf ./jsonpath/build
+	rm -rf ./uclient/build
 
 pull:
 	git submodule update --recursive --remote
