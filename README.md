@@ -2,7 +2,7 @@
 Of course, OpenWrt programs can't be fully supported on Ubuntu but partially this works.
 For example [uhttpd](https://openwrt.org/docs/guide-user/services/webserver/uhttpd) on Ubuntu works pretty well. To expose `/www` dir via http:
 
-    sudo uhttpd -f -h /www -p 80 
+    sudo uhttpd -f -h /www -p 8080 
 
 Also at this moment works `jshn` and `ubus` commands.
 
@@ -62,9 +62,8 @@ then press `y`es and after build check the **parent** directory for the built `*
 #### Upload to PPA
 It's not so easy to do that but try:
 
-    debuild -S -I
-    cd ..
-    dput ppa:stokito/openwrt openwrt_1.0-1_source.changes
+    debuild -S -I -sa
+    dput ppa:stokito/openwrt ../openwrt_*_source.changes
  
  The `-S` means create only sources package and `-I` needed to ignore `.git` directory.
  
