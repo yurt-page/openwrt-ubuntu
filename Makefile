@@ -90,5 +90,15 @@ clean:
 	rm -rf ./jsonpath/build
 	rm -rf ./uclient/build
 
+clean_dist:
+	rm -rf ./uclient/build
+	rm ../openwrt_*.dsc
+	rm ../openwrt_*.tar.gz
+	rm ../openwrt_*_amd64.build
+	rm ../openwrt_*_source.build
+	rm ../openwrt_*_source.buildinfo
+	rm ../openwrt_*_source.changes
+	rm ../openwrt_*_source.ppa.upload
+
 pull:
 	git submodule update --recursive --remote
