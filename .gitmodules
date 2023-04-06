@@ -1,38 +1,49 @@
 [submodule "libubox"]
 	path = libubox
 	url = https://git.openwrt.org/project/libubox.git
+	branch = master
 [submodule "ubus"]
 	path = ubus
 	url = https://git.openwrt.org/project/ubus.git
+	branch = master
 [submodule "uci"]
 	path = uci
 	url = https://git.openwrt.org/project/uci.git
+	branch = master
 [submodule "uhttpd"]
 	path = uhttpd
 	url = https://git.openwrt.org/project/uhttpd.git
+	branch = master
 [submodule "ustream-ssl"]
 	path = ustream-ssl
 	url = https://git.openwrt.org/project/ustream-ssl.git
-
+	branch = master
 [submodule "rpcd"]
 	path = rpcd
 	url = https://git.openwrt.org/project/rpcd.git
+	branch = master
 	ignore = dirty
 [submodule "luci"]
 	path = luci
 	url = https://github.com/openwrt/luci.git
+	branch = master
 [submodule "iwinfo"]
 	path = iwinfo
 	url = https://git.openwrt.org/project/iwinfo.git
+	branch = master
 [submodule "jsonpath"]
 	path = jsonpath
 	url = https://git.openwrt.org/project/jsonpath.git
+	branch = master
 [submodule "mountd"]
 	path = mountd
 	url = https://git.openwrt.org/project/mountd.git
+	branch = master
 [submodule "netifd"]
 	path = netifd
 	url = https://git.openwrt.org/project/netifd.git
+	branch = master
 [submodule "uclient"]
 	path = uclient
 	url = https://git.openwrt.org/project/uclient.git
+	branch = master
