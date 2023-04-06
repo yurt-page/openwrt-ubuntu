@@ -46,14 +46,14 @@ ustream-ssl_install: ustream-ssl/build libubox_install
 
 uhttpd/build: libubox/build ustream-ssl/build ubus/build
 	mkdir ./uhttpd/build
-	cd ./uhttpd/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr .. ; make
+	cd ./uhttpd/build; cmake -DUCODE_SUPPORT=OFF -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr .. ; make
 
 uhttpd_install: uhttpd/build libubox_install ustream-ssl_install ubus_install
 	cd ./uhttpd/build; make DESTDIR=$(DESTDIR) install
 
 rpcd/build: libubox/build ubus/build uci/build
 	mkdir ./rpcd/build
-	cd ./rpcd/build; cmake -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr -DIWINFO_SUPPORT=OFF .. ; make
+	cd ./rpcd/build; cmake -DUCODE_SUPPORT=OFF -DCMAKE_INSTALL_PREFIX=${DESTDIR}/usr -DIWINFO_SUPPORT=OFF .. ; make
 
 rpcd_install: rpcd/build libubox_install ubus_install uci_install
 	cd ./rpcd/build; make DESTDIR=$(DESTDIR) install
