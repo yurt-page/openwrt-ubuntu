@@ -44,11 +44,20 @@ Also quite popular is `uci`:
     make uci/build
     sudo make uci_install
 
-BTW after than you can build the rest with just
+BTW after that you can build the rest with just
 
     make
 
 And internally will be called the target `.all`
+
+Or build manually:
+
+    make uclient/build
+    make rpcd/build
+    make jsonpath/build
+    make uclient/build
+    make mountd/build
+
 
 #### Debian/Ubuntu packages
 
