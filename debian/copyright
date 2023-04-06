@@ -10,4 +10,4 @@ License: GPL-2+
 # the following clauses, or change it to suit. Delete these two lines
 Files: debian/*
 Copyright: 2018 Sergey Ponomarev <stokito@gmail.com>
-License: GPL-2+
+License: GPL-2

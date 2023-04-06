@@ -1,5 +1,6 @@
 #! /usr/bin/dh-exec
 # from install_manifest.txt
+/usr/include/libubox/assert.h
 /usr/include/libubox/avl-cmp.h
 /usr/include/libubox/avl.h
 /usr/include/libubox/blob.h
